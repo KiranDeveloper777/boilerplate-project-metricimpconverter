@@ -1,6 +1,7 @@
 function ConvertHandler() {
 
   this.getNum = function(input) {
+
     let num = input.match(/^[\d./]+/);
 
     if (!num) return 1;
@@ -27,6 +28,7 @@ function ConvertHandler() {
   };
 
   this.getUnit = function(input) {
+
     let unit = input.match(/[a-zA-Z]+$/);
 
     if (!unit)
@@ -43,6 +45,7 @@ function ConvertHandler() {
   };
 
   this.getReturnUnit = function(initUnit) {
+
     const map = {
       gal: "L",
       L: "gal",
@@ -56,6 +59,7 @@ function ConvertHandler() {
   };
 
   this.spellOutUnit = function(unit) {
+
     const map = {
       gal: "gallons",
       L: "liters",
