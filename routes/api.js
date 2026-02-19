@@ -28,8 +28,7 @@ module.exports = function (app) {
 
       let returnUnit = convertHandler.getReturnUnit(initUnit);
       let returnNum = convertHandler.convert(initNum, initUnit);
-
-      let string = `${initNum} ${convertHandler.spellOutUnit(initUnit)} converts to ${returnNum} ${convertHandler.spellOutUnit(returnUnit)}`;
+      let string = convertHandler.getString(initNum, initUnit, returnNum, returnUnit);
 
       res.json({
         initNum,
