@@ -14,6 +14,8 @@ module.exports = function (app) {
       let initNum = convertHandler.getNum(input);
       let initUnit = convertHandler.getUnit(input);
 
+      // IMPORTANT ORDER (FCC requires this exact order)
+
       if (initNum === "invalid number" && initUnit === "invalid unit") {
         return res.send("invalid number and unit");
       }
