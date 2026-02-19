@@ -1,6 +1,8 @@
 function ConvertHandler() {
 
   this.getNum = function(input) {
+
+    let result;
     let num = input.match(/^[\d./]+/);
 
     if (!num) return 1;
@@ -10,10 +12,9 @@ function ConvertHandler() {
     if ((num.match(/\//g) || []).length > 1)
       return "invalid number";
 
-    let result;
-
     if (num.includes("/")) {
       let parts = num.split("/");
+      if (parts.length !== 2) return "invalid number";
       result = parseFloat(parts[0]) / parseFloat(parts[1]);
     } else {
       result = parseFloat(num);
@@ -26,6 +27,7 @@ function ConvertHandler() {
   };
 
   this.getUnit = function(input) {
+
     let unit = input.match(/[a-zA-Z]+$/);
 
     if (!unit)
@@ -42,6 +44,7 @@ function ConvertHandler() {
   };
 
   this.getReturnUnit = function(initUnit) {
+
     const map = {
       gal: "L",
       L: "gal",
@@ -55,6 +58,7 @@ function ConvertHandler() {
   };
 
   this.spellOutUnit = function(unit) {
+
     const map = {
       gal: "gallons",
       L: "liters",
@@ -99,11 +103,6 @@ function ConvertHandler() {
     return Number(result.toFixed(5));
   };
 
-  this.getString = function(initNum, initUnit, returnNum, returnUnit) {
-    return `${initNum} ${this.spellOutUnit(initUnit)} converts to ${returnNum} ${this.spellOutUnit(returnUnit)}`;
-  };
-
 }
 
 module.exports = ConvertHandler;
-
